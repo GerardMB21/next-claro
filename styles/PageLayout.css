@@ -1,0 +1,236 @@
+.navTopBx{
+  position: relative;
+}
+
+.call{
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  transition: .5s;
+}
+
+.call:first-child{
+  position: fixed;
+  background: var(--black1);
+  color: var(--white);
+  z-index: 3;
+}
+
+.call:nth-child(2){
+  position: absolute;
+  top: 55px;
+  background: var(--white);
+  z-index: 2;
+}
+
+.call div{
+  padding: .7rem .5rem;
+}
+
+.call a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--white);
+  background: linear-gradient(var(--ligthblue1),var(--ligthblue2));
+  padding: .3rem .6rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.logoBx{
+  position: fixed;
+  top: 110px;
+  width: 100%;
+  height: 80px;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .7rem .5rem;
+  z-index: 3;
+  transition: 0.5s;
+}
+
+.scroll .logoBx{
+  top: 55px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.navTopBx .imgBx:first-child{
+  width: 50px;
+}
+
+.navTopBx .imgBx:last-child{
+  width: 200px;
+}
+
+.navTopBx .imgBx img{
+  max-width: 100%;
+}
+
+.toggle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.5em;
+  color: var(--white);
+  background: var(--black1);
+  padding: .3rem;
+  border-radius: .5rem;
+  transition: 0.5s;
+}
+
+.toggle span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.logoBx .sections{
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 190px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+  transition: 0.5s;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.scroll .logoBx .sections{
+  top: 135px;
+}
+
+.logoBx .sections a{
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0;
+  color: var(--white);
+  font-weight: 700;
+  text-shadow: 0 4px 3px rgb(0 0 0 / 40%), 0 8px 13px rgb(0 0 0 / 10%), 0 18px 23px rgb(0 0 0 / 10%);
+  transition: 0.5s;
+}
+
+.logoBx .sections.activate{
+  height: 50px;
+  background: var(--red);
+}
+
+.logoBx .sections.activate a{
+  opacity: 1;
+}
+
+.logoBx .help{
+  display: none;
+}
+
+main{
+  position: relative;
+  top: 190px;
+  min-height: calc(100vh - 190px);
+}
+
+main.active{
+  top: 135px;
+  min-height: calc(100vh - 135px);
+}
+
+@media only screen and (min-width: 450px) {
+  
+  .call:nth-child(2){
+    display: none;
+  }
+
+  .call:first-child div:nth-child(2){
+    height: 100%;
+    background: var(--red);
+  }
+
+  .call:first-child a{
+    height: 100%;
+    border-radius: 0;
+    background: var(--red);
+  }
+
+  .logoBx{
+    top: 55px;
+  }
+
+  .toggle{
+    display: none;
+  }
+
+  .logoBx .sections{
+    max-width: 340px;
+    top: calc(95px - 0.6em);
+    left: 25%;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+  }
+
+  .scroll .logoBx .sections{
+    top: calc(95px - 0.6em);
+  }
+
+  .logoBx .sections a{
+    opacity: 1;
+    font-size: 1.2em;
+  }
+
+  .logoBx .help{
+    display: inherit;
+    width: 470px;
+    height: 49px;
+    padding: .8rem;
+    border-radius: 1rem;
+    border: 2px solid var(--white);
+    background: var(--red);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .logoBx .help:hover{
+    background: var(--white);
+    color: var(--red);
+  }
+
+  .logoBx .help div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 700;
+  }
+
+  .logoBx .help div ion-icon{
+    font-size: 1.5em;
+  }
+
+  main{
+    top: 135px;
+    min-height: calc(100vh - 135px);
+  }
+
+}
