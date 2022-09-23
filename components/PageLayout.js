@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { setScroll } from "../store/slices/scroll.slice";
 import { useRouter } from "next/router";
+import Modal from "./modal/Modal";
+import Form from "./form/Form";
+import { setSection } from "../store/slices/section.slice";
 
 export default function PageLayout({children}) {
 
@@ -18,6 +21,7 @@ export default function PageLayout({children}) {
 
   const scroll = useSelector(state=>state.scroll);
   const number = useSelector(state=>state.number);
+  const modal = useSelector(state=>state.modal);
 
   const [activate,setActivate] = useState(false);
 
@@ -38,6 +42,10 @@ export default function PageLayout({children}) {
     });
   };
 
+  const reset = ()=>{
+    dispatch(setSection(0));
+  };
+
   return (
     <>
       <Head>
@@ -45,6 +53,13 @@ export default function PageLayout({children}) {
         <title>Claro Hogar ¡Promociones exclusivas en internet, cable y TV!</title>
         <link rel="icon" href="/favicon-claro.png" />
       </Head>
+      {
+        modal ?
+        <Modal>
+          <Form modal={true}/>
+        </Modal> :
+        <></>
+      }
       <div className={ scroll ? 'navTopBx scroll' : 'navTopBx' }>
         <div className='call'>
           <div>
@@ -87,7 +102,7 @@ export default function PageLayout({children}) {
               />
             </div>
           </div>
-          <div className={ activate ? 'sections activate' : 'sections' }>
+          <div className={ activate ? 'sections activate' : 'sections' }  onClick={()=>reset()}>
             <Link href={`/${ query ? '?' + query : '' }`}>planes hogar</Link>
             <Link href={`/moviles${ query ? '?' + query : '' }`}>planes móviles</Link>
           </div>
@@ -110,6 +125,32 @@ export default function PageLayout({children}) {
       <main className={ scroll ? 'active' : '' }>
         {children}
       </main>
+      <footer>
+        <div className="footer">
+          <div>
+            <Image
+              width={120}
+              height={120}
+              src={dc} 
+              alt='logo D&C'
+            />
+          </div>
+          <div>
+            <span>Línea exclusiva de ventas</span>
+            <a href={`tel:${number.hogar}`}>
+              <ion-icon name="call"></ion-icon>
+              {`(${number.hogar.slice(0,2)}) ${number.hogar.slice(2)}`}
+            </a>
+          </div>
+          <div>
+            <span>Terminos y Condiciones de la Web</span>
+            <span>Politicas de privacidad</span>
+          </div>
+        </div>
+        <div className="copyright">
+          <p>© COMPANY D&C DIGITAL GROUP S.A.C. Distribuidor Autorizado de Claro</p>
+        </div>
+      </footer>
       <Script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></Script>
       <Script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></Script>
     </>

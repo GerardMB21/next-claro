@@ -16,7 +16,7 @@
   position: fixed;
   background: var(--black1);
   color: var(--white);
-  z-index: 3;
+  z-index: 100;
 }
 
 .call:nth-child(2){
@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: space-between;
   padding: .7rem .5rem;
-  z-index: 3;
+  z-index: 100;
   transition: 0.5s;
 }
 
@@ -146,12 +146,83 @@
 main{
   position: relative;
   top: 190px;
-  min-height: calc(100vh - 190px);
 }
 
 main.active{
   top: 135px;
-  min-height: calc(100vh - 135px);
+}
+
+footer{
+  position: relative;
+  background: var(--black3);
+  bottom: 0;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 1rem;
+  color: var(--white);
+}
+
+footer .footer div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+footer .footer div:nth-child(2) span{
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+footer .footer div:nth-child(2) a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 2em;
+}
+
+footer .footer div:last-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+footer .footer div:last-child span{
+  font-size: .8em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+footer .copyright{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border-top: .5px solid var(--red);
+  color: var(--red);
+  font-size: .85em;
+  font-weight: 600;
 }
 
 @media only screen and (min-width: 450px) {
@@ -230,7 +301,16 @@ main.active{
 
   main{
     top: 135px;
-    min-height: calc(100vh - 135px);
+  }
+
+  footer .footer{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  footer .copyright{
+    font-size: 1em;
+    margin-bottom: 1rem;
   }
 
 }

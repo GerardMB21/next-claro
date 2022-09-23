@@ -1,18 +1,68 @@
 .cardList{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  /* display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap; */
+  flex-wrap: wrap;
   gap: 5em;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 650px;
+  padding: 1rem;
+}
+
+.cardBxI{
+  position: relative;
+}
+
+.cardBxI i{
+  position: absolute;
+  top: 80px;
+  left: -6px;
+  width: auto;
+  height: 50px;
+  background: var(--orange2);
+  border-radius: 30px;
+  border-bottom-left-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.cardBxI i::before{
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 15px;
+  height: 30px;
+  background: var(--orange1);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 3;
+}
+
+.cardBxI i::after{
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: var(--orange2);
+}
+
+.cardBxI i span{
+  padding: 0 2rem;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: var(--white);
 }
 
 .card{
   position: relative;
-  margin: auto;
-  width: 300px;
-  height: 400px;
+  min-width: 300px;
+  min-height: 550px;
   background: var(--white);
   border-radius: 20px;
   display: flex;
@@ -22,11 +72,23 @@
   box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15),inset -5px -5px 15px rgba(255, 255, 255, 0.15), 5px 5px 25px rgba(0, 0, 0, 0.35), -5px -5px 25px rgba(255, 255, 255, 0.35);
 }
 
+.card.ifi{
+  min-height: 900px;
+}
+
+.card.trhee{
+  min-height: 600px;
+}
+
+.card.moviles{
+  min-height: 700px;
+}
+
 .card::after{
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   background-image: conic-gradient(transparent, transparent, transparent, var(--red));
   animation: animate 4s linear infinite;
   animation-delay: -2s;
@@ -35,10 +97,30 @@
 .card::before{
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   background-image: conic-gradient(transparent, transparent, transparent, var(--red));
   animation: animate 4s linear infinite;
+}
+
+.card.ifi::after{
+  width: 1100px;
+  height: 1100px;
+}
+
+.card.ifi::before{
+  width: 1100px;
+  height: 1100px;
+}
+
+.card.moviles::after{
+  width: 800px;
+  height: 800px;
+}
+
+.card.moviles::before{
+  width: 800px;
+  height: 800px;
 }
 
 @keyframes animate {
@@ -58,6 +140,286 @@
   z-index: 2;
 }
 
-.card .cardItem{
-  padding: .8rem;
+.card .cardItemBx{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardItemBx .header{
+  display: flex;
+  width: 100%;
+  padding: .8rem .8rem 0 .8rem;
+}
+
+.cardItemBx .header .imgBx{
+  width: 60%;
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardItemBx .header .imgBx img{
+  width: 100%;
+}
+
+.cardItemBx .header .content{
+  width: 40%;
+}
+
+.cardItemBx .header .content span{
+  font-size: .75em;
+  font-weight: 500;
+}
+
+.cardItemBx .header .content p{
+  color: var(--red);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.cardItemBx .name{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: var(--ligthblue3);
+  z-index: 4;
+}
+
+.cardItemBx .name p{
+  font-size: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.cardItemBx .name .unlimited{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cardItemBx .name .unlimited h6{
+  font-weight: 700;
+  color: var(--gray2);
+}
+
+.cardItemBx .details{
+  padding: 0 .8rem 0 .8rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.cardItemBx .details .item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5em;
+  border-bottom: 1px solid var(--gray1);
+  padding: .5rem 0;
+  font-size: 1em;
+}
+
+.cardItemBx .details .item.equipo{
+  flex-direction: column;
+  gap: 1em;
+}
+
+.cardItemBx .details .item div:nth-child(1){
+  color: var(--gray2);
+  font-weight: 500;
+}
+
+.cardItemBx .details .item div:nth-child(2){
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.cardItemBx .details .item.minuts div:nth-child(1){
+  font-size: .91em;
+}
+
+.cardItemBx .details .item.beneficy div:nth-child(2) span{
+  color: var(--red);
+}
+
+.cardItemBx .details .item.ifi div:nth-child(2){
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.cardItemBx .details .item.equipo div:nth-child(2){
+  color: var(--red);
+  font-size: 2em;
+}
+
+.cardItemBx .more{
+  position: relative;
+  bottom: 0;
+  padding: 0 .8rem .8rem .8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.cardItemBx .know p{
+  color: var(--ligthblue2);
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cardItemBx .more .restrictions{
+  font-size: .75em;
+  color: var(--gray2);
+}
+
+.cardItemBx .more .restrictions span{
+  color: var(--blue3);
+  cursor: pointer;
+}
+
+.cardItemBx .modal{
+  position: relative;
+  bottom: 0;
+  padding: 0 .8rem .8rem .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardItemBx .modal p{
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--red);
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.cardHeaderBx{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.cardHeaderCtn{
+  position: relative;
+  height: 100%;
+}
+
+.cardHeader{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.cardHeader .cardHeaderItem{
+  min-width: 100%;
+  margin: 1rem 1rem 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardHeader .cardHeaderItem h2{
+  color: var(--ligthblue2);
+  /* color: var(--white);
+  text-shadow: 0 0 10px var(--red), 0 0 20px var(--red), 0 0 40px var(--red), 0 0 80px var(--red), 0 0 120px var(--red), 0 0 200px var(--red), 0 0 300px var(--red), 0 0 400px  var(--red);
+  font-weight: 400; */
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.cardHeader .cardHeaderItem.active h2{
+  color: var(--red);
+}
+
+.rowsHeader{
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--red);
+  font-size: 2em;
+}
+
+.rowsHeader .rowsHeaderLeft, .rowsHeader .rowsHeaderRigth{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 450px) {
+
+  .cardBxI i{
+    top: 90px;
+    left: -15px;
+  }
+
+  .cardBxI i::before{
+    left: 0;
+  }
+  
+  .cardBxI i::after{
+    left: 0;
+  }
+  
+  .cardList{
+    overflow: inherit;
+    overflow-y: inherit;
+    height: auto;
+    padding: 0;
+  }
+  
+  .card{
+    width: 400px;
+    min-height: 550px;
+  }
+
+  .card.ifi{
+    min-height: 800px;
+  }
+
+  .cardHeader{
+    width: 100%;
+  }
+
+  .cardHeaderBx{
+    overflow: inherit;
+  }
+
+  .cardHeaderCtn .cardHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .cardHeader .cardHeaderItem{
+    min-width: auto;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+
+  .rowsHeader{
+    display: none;
+  }
+
 }

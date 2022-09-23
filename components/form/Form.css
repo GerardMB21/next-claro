@@ -1,0 +1,155 @@
+.formBx{
+  max-width: 372px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBx form{
+  background: var(--white);
+  border-radius: 1rem;
+  margin: 1rem;
+  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+  padding: 1.5rem;
+}
+
+.formBx.modal form{
+  background: var(--red);
+}
+
+.formBx form .noModal span{
+  color: var(--red);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.formBx form .noModal p{
+  color: var(--red);
+  font-size: 1.7em;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.formBx form .noModal label{
+  font-weight: 700;
+}
+
+.formBx.modal .modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.formBx.modal .modal .close{
+  position: absolute;
+  top: -.5em;
+  right: -.5em;
+  margin: 0;
+  font-size: 2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBx.modal .modal p{
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.formBx.modal .modal span{
+  text-align: center;
+  color: var(--white);
+  margin: 1rem 0;
+}
+
+.formBx.modal .modal a{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.formBx.modal .modal a ion-icon{
+  font-size: 1.2em;
+}
+
+.formBx form .strong{
+  font-weight: 700;
+}
+
+.formBx.modal form .strong{
+  color: var(--white);
+}
+
+.formBx form .inputBx{
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+  border: 1px solid var(--gray3);
+  border-radius: 1rem;
+  background: var(--white);
+}
+
+.formBx.modal form .inputBx{
+  border: 0;
+}
+
+.formBx form .inputBx input{
+  all: unset;
+  width: 100%;
+}
+
+.formBx form .buttonBx{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBx form .buttonBx button{
+  all: unset;
+  margin: 1rem 0;
+  padding: .5rem;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 700;
+  background: var(--red);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.formBx form .buttonBx button.disabled{
+  background: #ed5e6f;
+  cursor: inherit;
+}
+
+.formBx.modal form .buttonBx button{
+  background: var(--ligthblue2);
+}
+
+.formBx.modal form .buttonBx button.disabled{
+  background: var(--ligthblue1);
+}
+
+.display-none{
+  display: none;
+}
+
+@media only screen and (min-width:450px) {
+  
+  .formBx:not(.modal){
+    position: absolute;
+    top: calc(50% - 182.5px);
+    right: calc(25% - 185px);
+  }
+
+}
