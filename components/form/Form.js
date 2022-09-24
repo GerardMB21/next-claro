@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../store/slices/modal.slice";
 
 
-export default function Form({modal = false}) {
+export default function Form({number,modal = false}) {
 
   const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm();
 
-  const number = useSelector(state=>state.number);
+  const service = useSelector(state=>state.number);
   // const modalActive = useSelector(state=>state.modal);
 
   const [activate,setActivate] = useState(false); 
@@ -35,9 +35,9 @@ export default function Form({modal = false}) {
 
       const body = new URLSearchParams();
 
-      body.append("service", "PeruHfcCallme");
-      body.append("username", "dacar");
-      body.append("password", "StzsK46vs0a4nCJU55wD");
+      body.append("service", service?.service);
+      body.append("username", service?.userName);
+      body.append("password", service?.password);
       body.append("telephone", data.number.trim());
       body.append("tsource", null);
       body.append("ip", "127.0.0.1");
@@ -54,7 +54,9 @@ export default function Form({modal = false}) {
   };
 
   const close = ()=>{
-    dispatch(setModal(false));
+    dispatch(setModal({
+      form: false
+    }));
   };
 
   return (
@@ -71,9 +73,9 @@ export default function Form({modal = false}) {
           </span>
           <p>¡Buena elección!</p>
           <span>Llámanos gratis al</span>
-          <a href={`tel:${number.hogar}`}>
+          <a href={`tel:${number}`}>
             <ion-icon name="call"></ion-icon>
-            {`(${number.hogar.slice(0,2)}) ${number.hogar.slice(2)}`}
+            {`(${number?.slice(0,2)}) ${number?.slice(2)}`}
           </a>
           <span>O, si prefieres déjanos tus datos y te llamaremos inmediatamente ...</span>
         </div>

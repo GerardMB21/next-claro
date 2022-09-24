@@ -10,7 +10,28 @@ export default function CardItem({product,section,name}) {
   const dispatch = useDispatch();
 
   const active = ()=>{
-    dispatch(setModal(true));
+    dispatch(setModal({
+      form: true
+    }));
+  };
+
+  const activeDetails = ()=>{
+    dispatch(setModal({
+      details: true
+    }));
+  };
+
+  const activeFull = ()=>{
+    dispatch(setModal({
+      full: true
+    }));
+  };
+
+  const activePhone = (details)=>{
+    dispatch(setModal({
+      phone: true,
+      phoneDetails: details
+    }));
   };
 
   return (
@@ -318,14 +339,14 @@ export default function CardItem({product,section,name}) {
               section?.includes("equipo") ?
               <div className='more'>
                 <div className='know'>
-                  <p>Conoce Más</p>
+                  <p onClick={()=>activePhone(product?.details)}>Conoce Más</p>
                 </div>
               </div> :
               <div className='more'>
-                <div className='know'>
+                <div className='know' onClick={()=>activeDetails()}>
                   <p>Ver Detalles</p>
                 </div>
-                <p className='restrictions'>*Conoce restricciones y beneficios en <span>Full Claro</span></p>
+                <p className='restrictions'>*Conoce restricciones y beneficios en <span onClick={()=>activeFull()}>Full Claro</span></p>
               </div>
             }
             <div className="modal">

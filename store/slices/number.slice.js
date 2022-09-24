@@ -6,6 +6,9 @@ export const numberSlice = createSlice({
     hogar: "016805993",
     movil: "016805992",
     help: "016806465",
+    service: "PeruHfcCallme",
+    userName: "dacar",
+    password: "StzsK46vs0a4nCJU55wD"
   },
   reducers: {
       setNumber: (state,action)=>action.payload

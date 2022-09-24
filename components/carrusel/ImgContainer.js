@@ -6,12 +6,14 @@ export default function ImgContainer({img}) {
     <div className={`imgBx ${img.name}`}>
       <div className="movil">
         <Image
+          priority={true}
           src={img.urlMovil}
           alt='img'
         />
       </div>
       <div className="desktop">
         <Image
+          priority={true}
           src={img.urlDesktop}
           alt='img'
         />

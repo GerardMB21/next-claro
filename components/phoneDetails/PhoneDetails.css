@@ -1,0 +1,53 @@
+.phoneDetailsBx{
+  position: relative;
+  max-width: 300px;
+  height: 600px;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 1rem;
+}
+
+.phoneDetailsBx .close{
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.phoneDetailsBx .content{
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  height: 550px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.phoneDetailsBx .content h3{
+  font-size: 1.7em;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.phoneDetailsBx .content p{
+  width: 100%;
+  font-size: 1em;
+  color: var(--gray3);
+  text-align: justify;
+}
+
+@media only screen and (min-width: 450px) {
+  
+  .phoneDetailsBx{
+    max-width: 800px;
+    height: 800px;
+  }
+
+  .phoneDetailsBx .content{
+    height: 750px;
+  }
+
+}
