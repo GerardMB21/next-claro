@@ -327,6 +327,11 @@ export default function PageLayout({children}) {
           <p>© COMPANY D&C DIGITAL GROUP S.A.C. Distribuidor Autorizado de Claro</p>
         </div>
       </footer>
+      <div className="buttonCall">
+        <a href={`tel:${numberPage}`}>
+          <ion-icon name="call"></ion-icon>
+        </a>
+      </div>
       <Script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></Script>
       <Script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></Script>
     </>
