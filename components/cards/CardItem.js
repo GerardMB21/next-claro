@@ -120,7 +120,7 @@ export default function CardItem({product,section,name}) {
                   </div>
                   <div className='item'>
                     <div>
-                      <span>Gigas en alta velocidad</span>
+                      <span>Megas en alta velocidad</span>
                     </div>
                     <div>
                       <p>{product?.gigas}gb</p>
